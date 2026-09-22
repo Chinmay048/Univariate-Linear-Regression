@@ -1,16 +1,4 @@
-from pathlib import Path
-import shutil
-
-source_image = Path("/mnt/data/49d4a203-1e8d-444e-8321-c50fc2ddf6b6.png")
-out_dir = Path("/mnt/data/ml_linear_regression_readme")
-out_dir.mkdir(exist_ok=True)
-
-image_path = out_dir / "cost_function_vs_iterations.png"
-readme_path = out_dir / "README.md"
-
-shutil.copy2(source_image, image_path)
-
-readme = """# House Price Prediction Using Linear Regression
+# House Price Prediction Using Linear Regression
 
 ## Overview
 
@@ -87,7 +75,7 @@ The scaled feature was then used for prediction and gradient calculation.
 
 The following graph shows the cost decreasing rapidly during the initial iterations and then approaching a stable value.
 
-![Cost Function vs Iterations](cost_function_vs_iterations.png)
+![Cost Function vs Iterations](output.png)
 
 The decreasing cost demonstrates that the implemented gradient descent process is reducing the model's training error and converging toward a stable parameter region.
 
@@ -104,9 +92,3 @@ This version focuses on understanding and implementing the fundamentals of linea
 It intentionally uses a single feature, `living area`, to keep the mathematical implementation clear.
 
 Future extensions can include multiple linear regression using the other relevant housing features, prediction evaluation, and additional visualizations.
-"""
-
-readme_path.write_text(readme, encoding="utf-8")
-
-print(f"Created: {readme_path}")
-print(f"Created: {image_path}")
